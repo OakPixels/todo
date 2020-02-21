@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+{% block body %}
+<div class="row">
+  <div id="heading" class="col-md-12 text-center">
+    <h3>Joe's ToDo</h3>
+  </div>
+</div>
+<div class="row text-center">
+  <div id="list" class="col-md-6">
+    <div id="shadow">
+      <h3>To Do</h3>
+      {% for note in notes %}
+      <li>{{ note }}</li>
+      <form action="/remove" method="post">
+        <input type="hidden" name="delete_note" value="{{ note }}"></input>
+        <button type="submit">Done</button>
+      </form>
+      {% endfor %}
+    </div>
+  </div>
+  <div class="col-md-6">
+    <h3>Add an item</h3>
+    <form action="/add" method="post">
+      <input type="text" name="new_note"></input>
+      <button type="submit">Add</button>
+    </form>
+  </div>
+</div>
+{% endblock %}

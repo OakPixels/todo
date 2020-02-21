@@ -1,0 +1,32 @@
+#heading {
+  height: 10vh;
+}
+h3 {
+  color: black;
+  font-family: 'Lacquer';
+  font-size: 1.8rem;
+  padding-top: 10px;
+}
+button {
+  color: red;
+  font-family: 'Lacquer';
+  font-size: 1rem;
+  margin-bottom: 10px;
+}
+#list {
+  height: 90vh;
+  background-image: url("https://pics.freeartbackgrounds.com/midle/Country_Fields_Background-197.jpg");
+  background-size:100% 100%;
+  z-index: 1;
+  padding-right: 0!important;
+}
+#list h3 {
+  color: white;
+}
+#list li {
+  color: white;
+}
+#shadow {
+  background: rgba(0, 0, 0, 0.2);
+  height: 100%;
+}
