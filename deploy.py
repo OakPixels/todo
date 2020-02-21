@@ -3,8 +3,6 @@ from flask_session.__init__ import Session
 
 app = Flask(__name__)
 
-SESSION_PERMANENT = False
-SESSION_TYPE = "filesystem"
 Session(app)
 
 notes = []
@@ -20,5 +18,6 @@ def add():
 
 @app.route("/remove", methods=["GET", "POST"])
 def remove():
+    print(notes)
     notes.remove(request.form.get("delete_note"))
     return redirect("/")
