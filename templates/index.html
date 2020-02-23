@@ -10,11 +10,11 @@
     <div id="shadow">
       <h3>To Do</h3>
       {% for note in notes %}
-      <li>{{ note }}</li>
-      <form action="/remove" method="post">
-        <input type="hidden" name="delete_note" value="{{ note }}"></input>
-        <button type="submit">Done</button>
-      </form>
+        <li>{{ note }}</li>
+        <form action="/remove" method="post">
+          <input type="hidden" name="delete_note" value="{{ note }}"></input>
+          <button type="submit">Done</button>
+        </form>
       {% endfor %}
     </div>
   </div>
