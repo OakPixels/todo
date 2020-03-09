@@ -2,13 +2,13 @@
 {% block body %}
 <div class="row">
   <div id="heading" class="col-md-12 text-center">
-    <h3>Joe's ToDo</h3>
+    <h3>My ToDo List</h3>
   </div>
 </div>
 <div class="row text-center">
   <div id="list" class="col-md-6">
     <div id="shadow">
-      <h3>To Do</h3>
+      <h3>Things left</h3>
       {% for note in notes %}
         <li>{{ note }}</li>
         <form action="/remove" method="post">
