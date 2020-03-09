@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request, redirect, session
-from flask.ext.session import Session
+from flask_session import Session
 import redis
 
 app = Flask(__name__)
