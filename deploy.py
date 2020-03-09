@@ -1,39 +1,27 @@
-from flask import Flask, render_template, request, redirect
-import csv
+from flask import Flask, render_template, request, redirect, session
+from flask.ext.session import Session
+import redis
 
 app = Flask(__name__)
+SESSION_TYPE = 'redis'
+app.config.from_object(__name__)
+Session(app)
+
+session['notes'] = []
 
 @app.route("/")
 def index():
-    notes = []
-    with open('todo.csv') as csv_file:
-        csv_reader = csv.reader(csv_file)
-        for row in csv_reader:
-            notes.append(row[0])
-    return render_template("index.html", notes=notes)
+    return render_template("index.html", notes=session['notes'])
 
 @app.route("/add", methods=["GET", "POST"])
 def add():
     note = request.form.get('new_note')
-    with open('todo.csv', mode='a') as todo_file:
-        note_writer = csv.writer(todo_file)
-        note_writer.writerow([note],)
+    session['notes'].append(note)
     return redirect("/")
 
 @app.route("/remove", methods=["GET", "POST"])
 def remove():
-    updated = []
-    with open('todo.csv') as csv_file:
-        csv_reader = csv.reader(csv_file)
-        for row in csv_reader:
-            print(row[0])
-            print(request.form.get('delete_note'))
-            print('...')
-            print(row[0] == request.form.get('delete_note'))
-            if row[0] != request.form.get('delete_note'):
-                updated.append(row[0])
-    with open('todo.csv', mode='w') as update_file:
-        for note in updated:
-            note_writer = csv.writer(update_file)
-            note_writer.writerow([note])
+    for note in session['notes']:
+        if note == request.form.get('delete_note'):
+            session['notes'].remove(note)
     return redirect("/")
