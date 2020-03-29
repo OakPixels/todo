@@ -26,6 +26,9 @@ button {
 #list li {
   color: white;
 }
+#list form {
+  display: inline;
+}
 #shadow {
   background: rgba(0, 0, 0, 0.2);
   height: 100%;
