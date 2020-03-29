@@ -2,26 +2,27 @@
 {% block body %}
 <div class="row">
   <div id="heading" class="col-md-12 text-center">
-    <h3>My ToDo List</h3>
+    <a href="/"><h3 id="head">{{ title }}</h3></a>
   </div>
 </div>
 <div class="row text-center">
   <div id="list" class="col-12 col-md-6">
     <div id="shadow">
-      <h3>Things left</h3>
+      <h3>Things left: {{ total }}</h3>
       {% for note in notes %}
         <li>{{ note }}</li>
         <form action="/remove" method="post">
-          <input type="hidden" name="delete_note" value="{{ note }}"></input>
+          <input type="hidden" name="to_delete" value="{{ note }}"></input>
           <button type="submit">Done</button>
         </form>
-        {% if edit == True %}
+        {% if edit == True and note == toEdit %}
         <form action="/edited" method="post">
           <input type="text" name="after_note"></input>
           <input type="hidden" name="before_note" value="{{ note }}"></input>
           <button type="submit">Save</button>
         {% else %}
         <form action="/edit" method="post">
+          <input type="hidden" name="before_note" value="{{ note }}"></input>
           <button type="submit">Edit</button>
         {% endif %}
         </form>
