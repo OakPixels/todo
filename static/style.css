@@ -16,7 +16,7 @@ button {
 #list {
   height: 95vh;
   background-image: url("https://pics.freeartbackgrounds.com/midle/Country_Fields_Background-197.jpg");
-  background-size:1000px 800px;
+  background-size:1000px 767px;
   z-index: 1;
   padding-right: 0!important;
 }
@@ -41,5 +41,8 @@ button {
 @media (max-width: 767px) {
   #list {
     height: auto;
+  }
+  h3 {
+    font-size: 1.5rem;
   }
 }
