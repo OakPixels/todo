@@ -1,5 +1,15 @@
+/* Home page */
 #heading {
   height: 50px;
+}
+#head {
+  display: inline-block;
+}
+#logout {
+  position: absolute;
+  right: 0;
+  margin-right: 20px;
+  display: inline;
 }
 h3 {
   color: black;
@@ -36,6 +46,18 @@ button {
 #add {
   display: inline;
   clear: both;
+}
+
+/* Login page */
+hr {
+  border-top: 2px solid;
+  margin-bottom: 20px;
+}
+#background {
+  height: 100vh;
+  background-image: url("https://pics.freeartbackgrounds.com/midle/Country_Fields_Background-197.jpg");
+  background-size:100% 100vh;
+  z-index: 1;
 }
 
 @media (max-width: 767px) {

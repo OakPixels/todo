@@ -3,6 +3,7 @@
 <div class="row">
   <div id="heading" class="col-md-12 text-center">
     <a href="/"><h3 id="head">{{ title }}</h3></a>
+    <a href="/logout"><h3 id="logout">Logout</h3></a>
   </div>
 </div>
 <div class="row text-center">
@@ -17,7 +18,7 @@
         </form>
         {% if edit == True and note == toEdit %}
         <form action="/edited" method="post">
-          <input type="text" name="after_note"></input>
+          <input type="text" name="after_note" value="{{ toEdit }}"></input>
           <input type="hidden" name="before_note" value="{{ note }}"></input>
           <button type="submit">Save</button>
         {% else %}

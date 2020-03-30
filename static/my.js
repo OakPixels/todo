@@ -1,10 +1,11 @@
 function resetTitle() {
-  if (document.getElementById("head").innerHTML != "My ToDo List") {
-    document.getElementById("head").innerHTML = "My ToDo List";
+  let test = document.getElementById("head").innerHTML
+  if (test.slice(-4) != "List") {
+    document.getElementById("head").innerHTML = title;
   };
 }
 
 // Reset title after 1 second
 setTimeout(function(){
   resetTitle();
-}, 1000);
+}, 2000);
