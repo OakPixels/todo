@@ -81,5 +81,6 @@ hr {
   }
   #heading button {
     margin-bottom: 10px;
+    white-space: pre-line; 
   }
 }
