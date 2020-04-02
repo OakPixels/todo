@@ -1,11 +1,13 @@
+var heading = document.getElementById("head")
+
 function resetTitle() {
-  let test = document.getElementById("head").innerHTML
-  if (test.slice(-4) != "List") {
-    document.getElementById("head").innerHTML = title;
-  };
+  heading.innerHTML = title;
 }
 
-// Reset title after 1 second
-setTimeout(function(){
-  resetTitle();
-}, 2000);
+let text = heading.innerHTML
+// If notification text then show title after 2 seconds
+if (text.slice(-4) != "List") {
+  setTimeout(function(){
+    resetTitle();
+  }, 2000);
+}
