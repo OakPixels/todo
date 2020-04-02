@@ -2,8 +2,16 @@
 {% block body %}
 <div class="row">
   <div id="heading" class="col-md-12 text-center">
+    {% if title == True %}
+    <form action="/reg" method="post">
+      <input type="text" name="name"></input>
+      <label>'s ToDo List</label>
+      <button type="submit">Start</button>
+    </form>
+    {% else %}
     <a href="/"><h3 id="head">{{ title }}</h3></a>
     <a href="/logout"><h3 id="logout">Logout</h3></a>
+    {% endif %}
   </div>
 </div>
 <div class="row text-center">
