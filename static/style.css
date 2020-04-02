@@ -10,6 +10,7 @@
   right: 0;
   margin-right: 20px;
   display: inline;
+  font-size: 1.2rem;
 }
 h3 {
   color: black;
@@ -28,6 +29,7 @@ button {
   font-family: 'Bellota', cursive;
   font-size: 1rem;
   margin-bottom: 10px;
+  border-radius: 20%;
 }
 #list {
   height: 95vh;
@@ -72,5 +74,12 @@ hr {
   }
   h3 {
     font-size: 1.5rem;
+  }
+
+  #heading {
+    height: auto;
+  }
+  #heading button {
+    margin-bottom: 10px;
   }
 }
