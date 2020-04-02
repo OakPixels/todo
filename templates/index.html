@@ -2,10 +2,8 @@
 {% block body %}
 <div class="row">
   <div id="heading" class="col-md-12 text-center">
-    <div class="container">
-      <a href="/"><h3 id="head">{{ title }}</h3></a>
-      <a href="/logout"><h3 id="logout">Logout</h3></a>
-    </div>
+    <a href="/"><h3 id="head">{{ title }}</h3></a>
+    <a href="/logout"><h3 id="logout">Logout</h3></a>
   </div>
 </div>
 <div class="row text-center">
@@ -40,10 +38,4 @@
     </form>
   </div>
 </div>
-
-<script type="text/javascript">
-  /* Send Variables to JS */
-  var title = {{ data.title|tojson }}
-</script>
-
 {% endblock %}
