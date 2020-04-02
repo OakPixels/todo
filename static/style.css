@@ -30,6 +30,7 @@ button {
   font-size: 1rem;
   margin-bottom: 10px;
   border-radius: 20%;
+  background-color: #fff;
 }
 #list {
   height: 95vh;
@@ -81,6 +82,7 @@ hr {
   }
   #heading button {
     margin-bottom: 10px;
-    white-space: pre-line; 
+    margin-top: 5px;
+    white-space: pre-line;
   }
 }
