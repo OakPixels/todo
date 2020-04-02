@@ -10,34 +10,35 @@ app.secret_key = b'_5#y2L"F4Q8z\n\xec]/'
 def page(notify, edit, toEdit):
     notes = session['notes']
     total = len(notes)
+    title = session['username'] + "'s " + "ToDo List"
+    data = {'title': title}
     if notify != None:
         title = notify
-    else:
-        title = session['username'] + "'s " + "ToDo List"
     if edit == True:
-        return render_template("index.html", notes=notes, edit=True, toEdit=toEdit, total=total, title=title)
+        return render_template("index.html", notes=notes, edit=True, toEdit=toEdit, total=total, title=title, data=data)
     else:
-        return render_template("index.html", notes=notes, edit=False, total=total, title=title)
+        return render_template("index.html", notes=notes, edit=False, total=total, title=title, data=data)
 
 
 # URL Routes
 @app.route("/")
 def index():
     if 'username' in session:
-        if 'notes' not in session:
-            session['notes'] = []
         return page(None, False, None)
-    return redirect('/login')
+    title = True
+    data = {'title': title}
+    return render_template("index.html", title=title, data=data)
 
-@app.route("/login", methods=["GET", "POST"])
-def login():
-    # If logged in go to homepage
-    if 'username' in session:
-        return redirect('/')
-    if request.method == 'POST':
-        session['username'] = request.form.get('name').capitalize()
-        return redirect('/')
-    return render_template("login.html", title="Welcome")
+@app.route("/reg", methods=["POST"])
+def reg():
+    name = request.form.get('name')
+    full_name = ''
+    for word in name.split():
+        word = word.capitalize()
+        full_name += (word + ' ')
+    session['username'] = full_name
+    session['notes'] = []
+    return redirect('/')
 
 @app.route("/add", methods=["GET", "POST"])
 def add():
@@ -45,8 +46,7 @@ def add():
     notes = session['notes']
     for note in notes:
         if new_note == note:
-            total = len(notes)
-            return render_template("index.html", notes=notes, edit=False, total=total, title="Already Added")
+            return page("Already Added", False, None)
     notes.append(new_note)
     session['notes'] = notes
     notify = "Added"
@@ -79,7 +79,6 @@ def remove():
 
 @app.route("/logout", methods=["GET", "POST"])
 def logout():
-    notify = "Logged out"
     session.pop('username', None)
     session.pop('notes', None)
-    return render_template("login.html", title=notify)
+    return render_template("login.html")
