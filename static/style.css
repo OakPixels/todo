@@ -2,10 +2,13 @@
 #heading {
   height: 50px;
 }
+#head {
+  display: inline-block;
+}
 #logout {
   position: absolute;
   right: 0;
-  margin-right: 5%;
+  margin-right: 20px;
   display: inline;
 }
 h3 {
@@ -22,7 +25,7 @@ button {
 }
 #list {
   height: 95vh;
-  background-image: url("pics/home.jpg");
+  background-image: url("https://pics.freeartbackgrounds.com/midle/Country_Fields_Background-197.jpg");
   background-size:1000px 767px;
   z-index: 1;
   padding-right: 0!important;
@@ -60,9 +63,6 @@ hr {
 @media (max-width: 767px) {
   #list {
     height: auto;
-  }
-  #logout {
-    margin-right: 20px;
   }
   h3 {
     font-size: 1.5rem;
