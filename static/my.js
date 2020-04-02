@@ -1,3 +1,7 @@
+if (title == true) {
+  document.getElementById("count").innerHTML = "^ Enter name and press Start ^";
+}
+
 function resetTitle() {
   let test = document.getElementById("head").innerHTML
   if (test.slice(-4) != "List") {

@@ -17,6 +17,12 @@ h3 {
   font-size: 1.8rem;
   padding-top: 10px;
 }
+#heading form {
+  color: black;
+  font-family: 'Bellota', cursive;
+  font-size: 1.2rem;
+  padding-top: 10px;
+}
 button {
   color: red;
   font-family: 'Bellota', cursive;

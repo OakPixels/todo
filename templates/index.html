@@ -17,7 +17,7 @@
 <div class="row text-center">
   <div id="list" class="col-12 col-md-6">
     <div id="shadow">
-      <h3>Things left: {{ total }}</h3>
+      <h3 id="count">Things left: {{ total }}</h3>
       {% for note in notes %}
         <li>{{ note }}</li>
         <form action="/remove" method="post">
@@ -45,10 +45,6 @@
       <input type="text" name="new_note"></input>
       <button type="submit">Add</button>
     </form>
-  </div>
-  {% else %}
-  <div class="col-12"
-    <h3 class="text-center">Enter name and press Start</h3>
   </div>
   {% endif %}
 </div>

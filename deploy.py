@@ -72,6 +72,8 @@ def edited():
 @app.route("/remove", methods=["GET", "POST"])
 def remove():
     notes = session['notes']
+    if request.form.get('to_delete') not in notes:
+        return redirect('/')
     notes.remove(request.form.get('to_delete'))
     session['notes'] = notes
     notify = "Deleted"
